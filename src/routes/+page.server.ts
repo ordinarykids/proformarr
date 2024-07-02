@@ -40,7 +40,7 @@ export const actions = {
           "content": [
             {
               "type": "text",
-              "text": "give me a detailed prorforma for 1250 Lerida Way, Pacifica CA 94044\n. Only return the HTML part of a svelte component. No script, no explanation"
+              "text": "give me a detailed prorforma for the address [" + form.data.name + "]. Only return the HTML part of a svelte component. No script, no explanation"
             }
           ]
         }

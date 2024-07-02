@@ -5,8 +5,7 @@ import { schema } from './schema.ts';
 import Anthropic from "@anthropic-ai/sdk";
 import { ANTHROPIC_API_KEY } from '$env/static/private';
 
-export const maxDuration = 5; // This function can run for a maximum of 5 seconds
-export const dynamic = 'force-dynamic';
+
 
 
 

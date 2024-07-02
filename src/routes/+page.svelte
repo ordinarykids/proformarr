@@ -27,6 +27,7 @@
             <Input class="my-4"
                 type="text"
                 name="name"
+                placeholder="Enter Address of Parcel"
                 aria-invalid={$errors.name ? 'true' : undefined}
                 bind:value={$form.name}
                 {...$constraints.name}

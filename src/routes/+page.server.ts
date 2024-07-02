@@ -5,6 +5,11 @@ import { schema } from './schema.ts';
 import Anthropic from "@anthropic-ai/sdk";
 import { ANTHROPIC_API_KEY } from '$env/static/private';
 
+export const maxDuration = 5; // This function can run for a maximum of 5 seconds
+export const dynamic = 'force-dynamic';
+
+
+
 export const load = async () => {
   const form = await superValidate(zod(schema));
 
@@ -30,9 +35,11 @@ export const actions = {
     });
 
     const msg = await anthropic.messages.create({
-      model:"claude-3-opus-20240229",
-      max_tokens: 500,
-      temperature: .3,
+      model: "claude-3-5-sonnet-20240620",
+      max_tokens: 2000,
+      temperature: .2,
+      system: "You are a real estate agent specializing in finding unique opportunities to invest and develop land. You respond with the HTML for Svelte component using only tailwind classes.",
+
       messages: [
      
         {
@@ -40,7 +47,8 @@ export const actions = {
           "content": [
             {
               "type": "text",
-              "text": "give me a detailed prorforma for the address [" + form.data.name + "]. Only return the HTML part of a svelte component. No script, no explanation"
+              //"text": "give me a  prorforma for the address [" + form.data.name + "]. Also, what sort of projects could I build there? Dream big. Only return the HTML part of a svelte component. No script, no explanation. "
+              "text": "Only return the HTML part of a svelte component. No script, no explanation. Give me real estate development opportunities with a detailed investment proforma for the property address " + form.data.name + " based on zoning requirements for the property.Include in the proforma the following a) Land Acquisition b) Direct Costs (Hard Costs)-“sticks and bricks” c) Indirect Costs (Soft Costs)-consultants/permits/interest during construction/taxes during construction/financing fees. Only return the HTML part of a svelte component. No script, no explanation."
             }
           ]
         }

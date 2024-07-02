@@ -14,12 +14,12 @@
 
 
 
-<div class="w-1/2 m-auto  md:w-2/3 lg:w-1/2 mt-16">
+<div class="w-full m-auto  mt-16">
     <div>
         <img src="proformarr-owl.png" class="w-full"/>
 
     </div>
-    <div class="w-full px-4 py-8 m-auto">
+    <div class="w-full px-2 py-8 m-auto">
         <h1 class='font-bold text-xl'>PROFORMARR</h1>
        
         <form method="POST" use:enhance>
